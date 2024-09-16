@@ -1,0 +1,20 @@
+Screen2 As screen:
+
+    TextInput1 As text:
+        Default: ="000.000.000-00"
+        Format: =TextFormat.Number
+        Height: =88
+        HintText: ="000.000.000-00"
+        MaxLength: =14
+        OnChange: |-
+            =If(IsNumeric(Self.Text) And Len(Self.Text) = 14, 
+            
+            //TRUE - 2ª Condição
+            UpdateContext({VarPrimeiroDigito: Mod((Mid(Self.Text, 1, 1) * 5 + Mid(Self.Text, 2, 1) * 4 + Mid(Self.Text, 3, 1) * 3 + Mid(Self.Text, 4, 1) * 2 + Mid(Self.Text, 5, 1) * 9 + Mid(Self.Text, 6, 1) * 8 + Mid(Self.Text, 7, 1) * 7 + Mid(Self.Text, 8, 1) * 6 + Mid(Self.Text, 9, 1) * 5 + Mid(Self.Text, 10, 1) * 4 + Mid(Self.Text, 11, 1) * 3 + Mid(Self.Text, 12, 1) * 2), 11)});
+            //Notify("Este CPF é válido!", NotificationType.Success, 1000)
+            )
+        Width: =552
+        X: =387
+        Y: =333
+        ZIndex: =2
+
